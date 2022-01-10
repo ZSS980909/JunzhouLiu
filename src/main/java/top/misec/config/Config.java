@@ -70,6 +70,7 @@ public class Config {
 
     @Override
     public String toString() {
+        this.skipDailyTask = false;
         return "配置信息{" +
                 "每日投币数为：" + numberOfCoins +
                 "分享时是否点赞：" + selectLike +
@@ -89,6 +90,7 @@ public class Config {
     public void configInit() {
         String configJson;
         String outConfig = LoadFileResource.loadConfigJsonFromFile();
+        this.skipDailyTask = false;
         if (outConfig != null) {
             configJson = outConfig;
             log.info("读取外部配置文件成功");
