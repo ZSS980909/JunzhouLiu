@@ -53,7 +53,7 @@ public class Config {
      */
     private int coinAddPriority;
     private String userAgent;
-    private boolean skipDailyTask;
+    private boolean skipDailyTask = false;
     private String chargeForLove;
     private int reserveCoins;
 
@@ -114,7 +114,7 @@ public class Config {
 
             log.info("读取配置文件成功");
         }
-
+        this.skipDailyTask = false;
         Config.CONFIG = new Gson().fromJson(configJson, Config.class);
         HttpUtil.setUserAgent(Config.getInstance().getUserAgent());
         log.info(Config.getInstance().toString());
